@@ -1,0 +1,178 @@
+@use "variables" as v;
+@use "navi" as *;
+@use "breakpoints" as *;
+@use "elements" as *;
+@use "layout" as *;
+@use "colors" as c;
+@use "typo" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+}
+
+body {
+  // background-color: $mainDark;
+  // font-family: $primaryFont-400;
+  counter-reset: section;
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+}
+
+section.hero {
+  .slider {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    height: 100vh;
+    img {
+      filter: grayscale(100%) brightness(50%);
+      position: absolute;
+      height: 100%;
+      width: min(100%, 100%);
+      top: 0;
+      left: 0;
+      bottom: 0;
+      object-fit: cover;
+      object-position: center center;
+      z-index: -1;
+    }
+  }
+}
+
+.slider#firstSlide {
+  // background: transparent url("../img/2.jpg") no-repeat center center;
+  // background-size: cover;
+}
+
+// +
+// accordion
+// +
+
+$accordionPadding: 1em;
+
+.accordion {
+  counter-reset: lorem;
+  position: relative;
+  .tile {
+    color: c.$mainDark;
+    background-color: c.$mainWhite;
+    padding: $accordionPadding * 1.5;
+    margin: 0 0 $accordionPadding 0;
+
+    &.active {
+      margin: 0 0 0 0;
+      &::after {
+        content: "+";
+      }
+    }
+
+    &::before {
+      counter-increment: lorem;
+      content: "" counter(lorem) ". ";
+      color: c.$mainOrange;
+    }
+
+    &::after {
+      content: "-";
+      color: c.$mainOrange;
+      position: absolute;
+      right: $accordionPadding;
+    }
+  }
+
+  .active {
+    display: block !important;
+  }
+  .content {
+    background-color: c.$mainWhite;
+    display: none;
+    padding: 0 2em 2em 2em;
+    &.active {
+      margin: 0 0 2em 0;
+    }
+  }
+}
+
+// +
+// tabs
+// +
+
+.tabs {
+  counter-reset: lorem;
+  position: relative;
+  display: flex;
+
+  justify-content: center;
+  align-content: center;
+  gap: 1em;
+  .tile {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: center;
+    color: c.$mainDark;
+    background-color: c.$mainWhite;
+    margin: 0 0 0 0;
+    padding: $accordionPadding 0;
+    border-radius: v.$borderRadius;
+    &.active {
+      margin: 0 0 0 0;
+      background-color: c.$mainOrange;
+    }
+  }
+
+  .active {
+  }
+  .content {
+    background-color: c.$mainWhite;
+    display: none;
+    margin: 2em 0 0 0;
+    padding: 0;
+    position: relative;
+    &.active {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      width: 100%;
+      margin: 5em 0 0 0;
+    }
+  }
+}
+
+// +
+// portfolio
+// +
+
+.portfolioContent {
+  .portfolioItem {
+    aspect-ratio: 1 / 1.1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    img {
+      z-index: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .portfolioContent {
+      background-color: c.$mainDark;
+      border-radius: v.$borderRadius;
+      padding: $accordionPadding;
+      z-index: 1;
+      margin: $accordionPadding;
+      color: c.$mainWhite;
+    }
+  }
+}

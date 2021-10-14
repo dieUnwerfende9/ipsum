@@ -1,0 +1,15 @@
+@import "normalize-min";
+
+$paddingSmall: 3em 0 3em 0;
+$paddingMedium: 3em 0 3em 0;
+$paddingBig: 3em 0 3em 0;
+$borderRadius: 1rem;
+
+// $screenMobile:
+$screenTablet: 48em;
+$screenLaptop: 64em;
+$screenDesktop: 75em;
+
+@mixin animateThis {
+  transition: all 500ms ease;
+}
