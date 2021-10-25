@@ -1,0 +1,15 @@
+@use 'variables' as v;
+@use 'colors' as c;
+
+@mixin mq($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+.this {
+  color: c.$mainOrange;
+  @include mq(v.$paddingMedium) {
+    color: c.$mainlightGray;
+  }
+}
