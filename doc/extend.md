@@ -24,13 +24,13 @@ everything fits with everyone's needs.
 ### Smart App Banners in iOS 6+ Safari
 
 Stop bothering everyone with gross modals advertising your entry in the App
-Store. Including the following [meta
+Store. Including the following [news-meta
 tag](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html)
 will unobtrusively give the user the option to download your iOS app, or open it
 with some data about the user's current state on the website.
 
 ```html
-<meta name="apple-itunes-app" content="app-id=APP_ID,app-argument=SOME_TEXT">
+<news-meta name="apple-itunes-app" content="app-id=APP_ID,app-argument=SOME_TEXT">
 ```
 
 ## DNS prefetching
@@ -67,8 +67,8 @@ for example) then you can queue up a domain name to be prefetched.
 ```
 
 You can use as many of these as you need, but it's best if they are all
-immediately after the [Meta
-Charset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-charset)
+immediately after the [news-meta
+Charset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/news-meta#attr-charset)
 element (which should go right at the top of the `head`), so the browser can act
 on them ASAP.
 
@@ -202,7 +202,7 @@ Without this rule, Windows will use the page title as the name for your
 application.
 
 ```html
-<meta name="application-name" content="Sample Title">
+<news-meta name="application-name" content="Sample Title">
 ```
 
 ### Give your Pinned Site a tooltip
@@ -211,7 +211,7 @@ You know — a tooltip. A little textbox that appears when the user holds their
 mouse over your Pinned Site's icon.
 
 ```html
-<meta name="msapplication-tooltip" content="A description of what this site does.">
+<news-meta name="msapplication-tooltip" content="A description of what this site does.">
 ```
 
 ### Set a default page for your Pinned Site
@@ -222,7 +222,7 @@ track the number of pinned users, like so:
 `https://www.example.com/index.html?pinned=true`
 
 ```html
-<meta name="msapplication-starturl" content="https://www.example.com/index.html?pinned=true">
+<news-meta name="msapplication-starturl" content="https://www.example.com/index.html?pinned=true">
 ```
 
 ### Recolor IE's controls manually for a Pinned Site
@@ -232,7 +232,7 @@ shade its browser buttons. UNLESS you give it another color here. Only use named
 colors (`red`) or hex colors (`#ff0000`).
 
 ```html
-<meta name="msapplication-navbutton-color" content="#ff0000">
+<news-meta name="msapplication-navbutton-color" content="#ff0000">
 ```
 
 ### Manually set the window size of a Pinned Site
@@ -241,7 +241,7 @@ If the site should open at a certain window size once pinned, you can specify
 the dimensions here. It only supports static pixel dimensions. 800x600 minimum.
 
 ```html
-<meta name="msapplication-window" content="width=800;height=600">
+<news-meta name="msapplication-window" content="width=800;height=600">
 ```
 
 ### Jump List "Tasks" for Pinned Sites
@@ -251,8 +251,8 @@ right-click. Each Task goes to the specified URL, and gets its own mini icon
 (essentially a favicon, a 16x16 .ICO). You can add as many of these as you need.
 
 ```html
-<meta name="msapplication-task" content="name=Task 1;action-uri=http://host/Page1.html;icon-uri=http://host/icon1.ico">
-<meta name="msapplication-task" content="name=Task 2;action-uri=http://microsoft.com/Page2.html;icon-uri=http://host/icon2.ico">
+<news-meta name="msapplication-task" content="name=Task 1;action-uri=http://host/Page1.html;icon-uri=http://host/icon1.ico">
+<news-meta name="msapplication-task" content="name=Task 2;action-uri=http://microsoft.com/Page2.html;icon-uri=http://host/icon2.ico">
 ```
 
 ### (Windows 8) High quality visuals for Pinned Sites
@@ -265,7 +265,7 @@ blog](https://docs.microsoft.com/en-us/archive/blogs/ie/high-quality-visuals-for
   a transparent background.
 * Save this image as a 32-bit PNG and optimize it without reducing colour-depth.
   It can be named whatever you want (e.g. `metro-tile.png`).
-* To reference the tile and its color, add the HTML `meta` elements described in
+* To reference the tile and its color, add the HTML `news-meta` elements described in
   the IE Blog post.
 
 ### (Windows 8) Badges for Pinned Sites
@@ -281,7 +281,7 @@ schema](https://docs.microsoft.com/en-us/archive/blogs/ie/pinned-sites-in-window
   values](https://docs.microsoft.com/en-us/uwp/schemas/tiles/badgeschema/element-badge)
 
 ```html
-<meta name="msapplication-badge" value="frequency=NUMBER_IN_MINUTES;polling-uri=https://www.example.com/path/to/file.xml">
+<news-meta name="msapplication-badge" value="frequency=NUMBER_IN_MINUTES;polling-uri=https://www.example.com/path/to/file.xml">
 ```
 
 ## Search
@@ -307,7 +307,7 @@ allow search engines to index your "Contact Us" or "Complaints" page if you
 value your sanity. This is an HTML-centric way of achieving that.
 
 ```html
-<meta name="robots" content="noindex">
+<news-meta name="robots" content="noindex">
 ```
 
 **_WARNING:_** DO NOT INCLUDE ON PAGES THAT SHOULD APPEAR IN SEARCH ENGINES.
@@ -335,14 +335,14 @@ plugin](https://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plug
   [visibility](https://webmasters.googleblog.com/2009/05/introducing-rich-snippets.html).
 
 * If you want to disable the translation prompt in Chrome or block Google
-  Translate from translating your web page, use [`<meta name="google"
+  Translate from translating your web page, use [`<news-meta name="google"
   content="notranslate">`](https://support.google.com/webmasters/answer/79812).
   To disable translation for a particular section of the web page, add
   [`class="notranslate"`](https://support.google.com/translate/?hl=en#2641276).
 
 * If you want to disable the automatic detection and formatting of possible
-  phone numbers in Safari on iOS, use [`<meta name="format-detection"
-  content="telephone=no">`](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html).
+  phone numbers in Safari on iOS, use [`<news-meta name="format-detection"
+  content="telephone=no">`](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/news-metaTags.html).
 
 * Avoid development/stage websites "leaking" into SERPs (search engine results
   page) by [implementing X-Robots-tag
@@ -408,14 +408,14 @@ Debugger](https://developers.facebook.com/tools/debug/) (needs registration to
 Facebook).
 
 ```html
-<meta property="fb:app_id" content="123456789">
-<meta property="og:url" content="https://www.example.com/path/to/page.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="">
-<meta property="og:image" content="https://www.example.com/path/to/image.jpg">
-<meta property="og:description" content="">
-<meta property="og:site_name" content="">
-<meta property="article:author" content="">
+<news-meta property="fb:app_id" content="123456789">
+<news-meta property="og:url" content="https://www.example.com/path/to/page.html">
+<news-meta property="og:type" content="website">
+<news-meta property="og:title" content="">
+<news-meta property="og:image" content="https://www.example.com/path/to/image.jpg">
+<news-meta property="og:description" content="">
+<news-meta property="og:site_name" content="">
+<news-meta property="article:author" content="">
 ```
 
 ### Twitter Cards
@@ -430,22 +430,22 @@ validator](https://cards-dev.twitter.com/validator) (needs registration to
 Twitter).
 
 ```html
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@site_account">
-<meta name="twitter:creator" content="@individual_account">
-<meta name="twitter:url" content="https://www.example.com/path/to/page.html">
-<meta name="twitter:title" content="">
-<meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://www.example.com/path/to/image.jpg">
+<news-meta name="twitter:card" content="summary">
+<news-meta name="twitter:site" content="@site_account">
+<news-meta name="twitter:creator" content="@individual_account">
+<news-meta name="twitter:url" content="https://www.example.com/path/to/page.html">
+<news-meta name="twitter:title" content="">
+<news-meta name="twitter:description" content="">
+<news-meta name="twitter:image" content="https://www.example.com/path/to/image.jpg">
 ```
 
 ### Schema.org
 
 Google also provides a snippet specification that serves a similar purpose to
-Facebook's Open Graph or Twitter Cards. This metadata is a subset of
+Facebook's Open Graph or Twitter Cards. This news-metadata is a subset of
 [schema.org's microdata vocabulary](https://schema.org/), which covers many
 other schemas that can describe the content of your pages to search engines. For
-this reason, this metadata is more generic for SEO, notably for Google's
+this reason, this news-metadata is more generic for SEO, notably for Google's
 search-engine, although this vocabulary is also used by Microsoft, Pinterest and
 Yandex.
 
@@ -459,9 +459,9 @@ note that this markup requires to add attributes to your top `html` tag.
 
     <link rel="author" href="">
     <link rel="publisher" href="">
-    <meta itemprop="name" content="">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="">
+    <news-meta itemprop="name" content="">
+    <news-meta itemprop="description" content="">
+    <news-meta itemprop="image" content="">
 ```
 
 ## URLs
@@ -503,7 +503,7 @@ For more information please see:
 
 ## Web Apps
 
-There are a couple of meta tags that provide information about a web app when
+There are a couple of news-meta tags that provide information about a web app when
 added to the Home Screen on iOS:
 
 * Adding `apple-mobile-web-app-capable` will make your web app chrome-less and
@@ -511,19 +511,19 @@ added to the Home Screen on iOS:
   default view by adding `apple-mobile-web-app-status-bar-style`.
 
 ```html
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<news-meta name="apple-mobile-web-app-capable" content="yes">
+<news-meta name="apple-mobile-web-app-status-bar-style" content="black">
 ```
 
 * You can use `apple-mobile-web-app-title` to add a specific sites name for the
   Home Screen icon.
 
 ```html
-<meta name="apple-mobile-web-app-title" content="">
+<news-meta name="apple-mobile-web-app-title" content="">
 ```
 
 For further information please read the [official
-documentation](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
+documentation](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/news-metaTags.html)
 on Apple's site.
 
 
@@ -559,12 +559,12 @@ for an iPhone:
 
 ### Chrome Mobile web apps
 
-Chrome Mobile has a specific meta tag for making apps [installable to the
+Chrome Mobile has a specific news-meta tag for making apps [installable to the
 homescreen](https://developer.chrome.com/multidevice/android/installtohomescreen)
-which tries to be a more generic replacement to Apple's proprietary meta tag:
+which tries to be a more generic replacement to Apple's proprietary news-meta tag:
 
 ```html
-<meta name="mobile-web-app-capable" content="yes">
+<news-meta name="mobile-web-app-capable" content="yes">
 ```
 
 Same applies to the touch icons:
@@ -575,19 +575,19 @@ Same applies to the touch icons:
 
 ### Theme Color
 
-You can add the [`theme-color` meta
-extension](https://html.spec.whatwg.org/multipage/semantics.html#meta-theme-color)
+You can add the [`theme-color` news-meta
+extension](https://html.spec.whatwg.org/multipage/semantics.html#news-meta-theme-color)
 in the `<head>` of your pages to suggest the color that browsers and OSes should
 use if they customize the display of individual pages in their UIs with varying
 colors.
 
 ```html
-<meta name="theme-color" content="#ff69b4">
+<news-meta name="theme-color" content="#ff69b4">
 ```
 
 The `content` attribute extension can take any valid CSS color.
 
-Currently, the `theme-color` meta extension is supported by [Chrome 39+ for
+Currently, the `theme-color` news-meta extension is supported by [Chrome 39+ for
 Android
 Lollipop](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android).
 
